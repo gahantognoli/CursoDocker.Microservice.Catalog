@@ -9,6 +9,15 @@ services:
     build:
       context: .
       dockerfile: Catalog.API/Dockerfile
+  
+  basketdb:
+    image: redis:alpine
+
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    build:
+      context: .
+      dockerfile: Basket.API/Dockerfile
 
 volumes:
   mongo_data:
