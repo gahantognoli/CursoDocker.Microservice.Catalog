@@ -4,22 +4,25 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>e2375876-d3d9-4c5d-a1b1-62c109bc3b17</UserSecretsId>
+    <UserSecretsId>7459827f-3e94-449d-8478-05d78e16db98</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
-    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.10" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.20.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <None Remove="Protos\Discount.proto" />
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="..\Discount.Grpc\Protos\Discount.proto" GrpcServices="Client">
-      <Link>Protos\Discount.proto</Link>
-    </Protobuf>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.57.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.20.0" />
+    <PackageReference Include="Npgsql" Version="8.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\Discount.proto" GrpcServices="Server" />
   </ItemGroup>
 
 </Project>
